@@ -1,0 +1,1151 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- ==================== META INFORMATION ==================== -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NovaWorks | Digital Innovation Company</title>
+
+    <!-- ==================== CSS STYLES ==================== -->
+    <style>
+        /* 1. GLOBAL SETTINGS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #080b16;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1180px;
+            margin: auto;
+        }
+
+        /* 2. COLOR VARIABLES */
+        :root {
+            --primary: #9b7bff;
+            --secondary: #63e6f2;
+            --accent: #ff7ac8;
+            --background: #080b16;
+            --card: rgba(255, 255, 255, 0.06);
+            --text-light: #a8b0c8;
+            --border: rgba(255, 255, 255, 0.12);
+        }
+
+        /* 3. NAVIGATION BAR */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(8, 11, 22, 0.95);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-content {
+            min-height: 75px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: transparent;
+            color: white;
+            border: 1px solid var(--border);
+            padding: 8px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        /* 4. BUTTONS */
+        .btn {
+            display: inline-block;
+            padding: 12px 22px;
+            border-radius: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: linear-gradient(
+                110deg,
+                var(--secondary),
+                var(--primary),
+                var(--accent)
+            );
+            color: #080b16;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(155, 123, 255, 0.3);
+        }
+
+        .btn-outline {
+            border: 1px solid var(--border);
+            color: white;
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--secondary);
+            color: var(--secondary);
+        }
+
+        /* 5. HERO SECTION */
+        .hero {
+            padding: 100px 0;
+            background:
+                radial-gradient(
+                    circle at 15% 20%,
+                    rgba(155, 123, 255, 0.18),
+                    transparent 35%
+                ),
+                radial-gradient(
+                    circle at 85% 40%,
+                    rgba(99, 230, 242, 0.12),
+                    transparent 30%
+                );
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 7px 14px;
+            border-radius: 30px;
+            color: var(--secondary);
+            border: 1px solid rgba(99, 230, 242, 0.3);
+            background: rgba(99, 230, 242, 0.08);
+            font-size: 13px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 6vw, 76px);
+            line-height: 1.08;
+            margin-bottom: 24px;
+        }
+
+        .gradient-text {
+            background: linear-gradient(
+                90deg,
+                var(--primary),
+                var(--secondary)
+            );
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero p {
+            color: var(--text-light);
+            font-size: 18px;
+            max-width: 550px;
+            margin-bottom: 28px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        /* 6. HERO ANIMATION */
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 350px;
+        }
+
+        .orb {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            background: radial-gradient(
+                circle at 30% 25%,
+                #d1fbff,
+                #9b7bff 25%,
+                #39266e 65%,
+                #101326
+            );
+            box-shadow: 0 0 80px rgba(155, 123, 255, 0.35);
+            animation: float 5s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(-5deg);
+            }
+
+            50% {
+                transform: translateY(-18px) rotate(5deg);
+            }
+        }
+
+        /* 7. GENERAL SECTION STYLES */
+        .section {
+            padding: 85px 0;
+        }
+
+        .section-heading {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 45px;
+        }
+
+        .section-heading small {
+            color: var(--secondary);
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(30px, 4vw, 48px);
+            line-height: 1.2;
+            margin: 12px 0;
+        }
+
+        .section-heading p {
+            color: var(--text-light);
+        }
+
+        /* 8. SERVICES SECTION */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .service-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 28px;
+            transition: 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--secondary);
+            background: rgba(255, 255, 255, 0.09);
+        }
+
+        .service-icon {
+            font-size: 35px;
+            margin-bottom: 15px;
+        }
+
+        .service-card h3 {
+            font-size: 21px;
+            margin-bottom: 12px;
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            font-size: 15px;
+        }
+
+        /* 9. PROJECTS SECTION */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .project-card {
+            padding: 30px;
+            min-height: 260px;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            background: linear-gradient(
+                135deg,
+                rgba(155, 123, 255, 0.17),
+                rgba(99, 230, 242, 0.06)
+            );
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-card h3 {
+            font-size: 25px;
+            margin: 25px 0 12px;
+        }
+
+        .project-card p {
+            color: var(--text-light);
+        }
+
+        .project-tag {
+            display: inline-block;
+            padding: 5px 12px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            font-size: 12px;
+        }
+
+        /* 10. ABOUT SECTION */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about-content h2 {
+            font-size: clamp(30px, 4vw, 45px);
+            margin-bottom: 20px;
+        }
+
+        .about-content p {
+            color: var(--text-light);
+            margin-bottom: 18px;
+        }
+
+        .about-highlight {
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            background: var(--card);
+        }
+
+        .about-highlight h3 {
+            color: var(--secondary);
+            margin-bottom: 12px;
+        }
+
+        /* 11. STATISTICS SECTION */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 25px 12px;
+            border-radius: 18px;
+            background: var(--card);
+            border: 1px solid var(--border);
+        }
+
+        .stat-card h3 {
+            font-size: 38px;
+            color: var(--secondary);
+        }
+
+        .stat-card p {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        /* 12. CONTACT SECTION */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 35px;
+        }
+
+        .contact-info p {
+            color: var(--text-light);
+            margin: 15px 0 25px;
+        }
+
+        .contact-info h3 {
+            margin-top: 20px;
+        }
+
+        .contact-form {
+            background: var(--card);
+            border: 1px solid var(--border);
+            padding: 28px;
+            border-radius: 20px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 13px;
+            background: rgba(0, 0, 0, 0.25);
+            color: white;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            outline: none;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--secondary);
+        }
+
+        .form-group textarea {
+            min-height: 130px;
+            resize: vertical;
+        }
+
+        .form-message {
+            color: var(--text-light);
+            font-size: 13px;
+            margin-top: 12px;
+        }
+
+        /* 13. FOOTER */
+        .footer {
+            padding: 25px 0;
+            border-top: 1px solid var(--border);
+            color: var(--text-light);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        /* 14. RESPONSIVE DESIGN */
+        @media (max-width: 900px) {
+            .hero-content,
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero-visual {
+                min-height: 300px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 75px;
+                left: 0;
+                width: 100%;
+                padding: 25px;
+                background: #080b16;
+                flex-direction: column;
+                gap: 18px;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .services-grid,
+            .projects-grid,
+            .stats-grid,
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding: 65px 0;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            .orb {
+                width: 220px;
+                height: 220px;
+            }
+        }
+
+        /* 15. REDUCE MOTION FOR ACCESSIBILITY */
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ==================== HEADER / NAVBAR ==================== -->
+    <header class="navbar">
+        <div class="container nav-content">
+
+            <a href="#home" class="logo">
+                Nova<span>Works</span>
+            </a>
+
+            <button
+                class="menu-toggle"
+                id="menuToggle"
+                aria-label="Toggle navigation"
+                aria-expanded="false">
+                ☰
+            </button>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+            <a href="#contact" class="btn btn-primary">
+                Let's Talk ↗
+            </a>
+
+        </div>
+    </header>
+
+
+    <!-- ==================== HERO SECTION ==================== -->
+    <main>
+        <section class="hero" id="home">
+            <div class="container hero-content">
+
+                <div>
+                    <span class="badge">
+                        ✦ DIGITAL INNOVATION COMPANY
+                    </span>
+
+                    <h1>
+                        Build Your Future
+                        With <span class="gradient-text">Innovation.</span>
+                    </h1>
+
+                    <p>
+                        We create powerful digital experiences through
+                        modern web development, creative design, and
+                        intelligent technology solutions.
+                    </p>
+
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn btn-primary">
+                            Explore Our Work ↗
+                        </a>
+
+                        <a href="#services" class="btn btn-outline">
+                            Our Services ↓
+                        </a>
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <div class="orb"></div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== SERVICES SECTION ==================== -->
+        <section class="section" id="services">
+            <div class="container">
+
+                <div class="section-heading">
+                    <small>Our Services</small>
+
+                    <h2>
+                        Solutions That Drive
+                        <span class="gradient-text">Growth</span>
+                    </h2>
+
+                    <p>
+                        We combine technology, creativity, and strategy
+                        to help businesses succeed in the digital world.
+                    </p>
+                </div>
+
+                <div class="services-grid">
+
+                    <article class="service-card">
+                        <div class="service-icon">💻</div>
+                        <h3>Web Development</h3>
+                        <p>
+                            Responsive, fast, and modern websites
+                            designed to provide an excellent user
+                            experience across all devices.
+                        </p>
+                    </article>
+
+                    <article class="service-card">
+                        <div class="service-icon">🎨</div>
+                        <h3>UI/UX Design</h3>
+                        <p>
+                            Beautiful and intuitive interfaces that
+                            make digital products simple and enjoyable
+                            to use.
+                        </p>
+                    </article>
+
+                    <article class="service-card">
+                        <div class="service-icon">🤖</div>
+                        <h3>AI Solutions</h3>
+                        <p>
+                            Intelligent applications and automation
+                            solutions that help businesses work
+                            more efficiently.
+                        </p>
+                    </article>
+
+                    <article class="service-card">
+                        <div class="service-icon">📱</div>
+                        <h3>App Development</h3>
+                        <p>
+                            User-friendly applications that help
+                            businesses connect with their customers
+                            anywhere.
+                        </p>
+                    </article>
+
+                    <article class="service-card">
+                        <div class="service-icon">☁️</div>
+                        <h3>Cloud Solutions</h3>
+                        <p>
+                            Scalable cloud-based solutions that support
+                            business growth, performance, and reliability.
+                        </p>
+                    </article>
+
+                    <article class="service-card">
+                        <div class="service-icon">📈</div>
+                        <h3>Digital Growth</h3>
+                        <p>
+                            Data-driven strategies that improve online
+                            visibility, customer engagement, and
+                            business performance.
+                        </p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ==================== PROJECTS SECTION ==================== -->
+        <section class="section" id="projects">
+            <div class="container">
+
+                <div class="section-heading">
+                    <small>Our Projects</small>
+
+                    <h2>
+                        Ideas Into
+                        <span class="gradient-text">Reality</span>
+                    </h2>
+
+                    <p>
+                        Explore examples of digital solutions and
+                        creative experiences we can build.
+                    </p>
+                </div>
+
+                <div class="projects-grid">
+
+                    <article class="project-card">
+                        <span class="project-tag">
+                            Web Application
+                        </span>
+
+                        <h3>Smart Business Dashboard</h3>
+
+                        <p>
+                            A modern dashboard concept that presents
+                            important business data through clear
+                            visualizations and useful insights.
+                        </p>
+
+                        <a href="#contact" class="text-link">
+                            Discuss a project →
+                        </a>
+                    </article>
+
+                    <article class="project-card">
+                        <span class="project-tag">
+                            Artificial Intelligence
+                        </span>
+
+                        <h3>Intelligent Digital Assistant</h3>
+
+                        <p>
+                            An AI-powered assistant concept designed
+                            to answer questions, simplify workflows,
+                            and improve productivity.
+                        </p>
+
+                        <a href="#contact" class="text-link">
+                            Discuss a project →
+                        </a>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ==================== ABOUT SECTION ==================== -->
+        <section class="section" id="about">
+            <div class="container">
+
+                <div class="about-content">
+
+                    <div>
+                        <span class="badge">ABOUT OUR COMPANY</span>
+
+                        <h2>
+                            We Turn Ideas Into
+                            <span class="gradient-text">
+                                Digital Experiences
+                            </span>
+                        </h2>
+
+                        <p>
+                            NovaWorks is a sample digital innovation
+                            company focused on building meaningful
+                            technology solutions.
+                        </p>
+
+                        <p>
+                            Our approach combines creative thinking,
+                            modern technologies, and user-focused
+                            design to create useful digital products.
+                        </p>
+
+                        <a href="#contact" class="btn btn-primary">
+                            Work With Us ↗
+                        </a>
+                    </div>
+
+                    <div class="about-highlight">
+                        <h3>Our Mission</h3>
+
+                        <p>
+                            To make technology more useful, accessible,
+                            and impactful by building digital solutions
+                            that solve real-world problems.
+                        </p>
+
+                        <br>
+
+                        <h3>Our Vision</h3>
+
+                        <p>
+                            To help businesses embrace innovation and
+                            build a smarter, more connected digital future.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ==================== STATISTICS SECTION ==================== -->
+        <section class="section">
+            <div class="container">
+
+                <div class="stats-grid">
+
+                    <div class="stat-card">
+                        <h3 data-count="42">0</h3>
+                        <p>Projects Conceptualized</p>
+                    </div>
+
+                    <div class="stat-card">
+                        <h3 data-count="18">0</h3>
+                        <p>Business Partners</p>
+                    </div>
+
+                    <div class="stat-card">
+                        <h3 data-count="96" data-suffix="%">0</h3>
+                        <p>Quality Commitment</p>
+                    </div>
+
+                    <div class="stat-card">
+                        <h3 data-count="7">0</h3>
+                        <p>Years of Curiosity</p>
+                    </div>
+
+                </div>
+
+                <p class="form-message" style="text-align:center;">
+                    Sample statistics for demonstration. Replace them
+                    with verified company figures before publishing.
+                </p>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== CONTACT SECTION ==================== -->
+        <section class="section" id="contact">
+            <div class="container">
+
+                <div class="section-heading">
+                    <small>Get In Touch</small>
+
+                    <h2>
+                        Let's Build Something
+                        <span class="gradient-text">Amazing</span>
+                    </h2>
+
+                    <p>
+                        Have an idea or project in mind?
+                        Contact us to start a conversation.
+                    </p>
+                </div>
+
+                <div class="contact-content">
+
+                    <div class="contact-info">
+                        <h2>Let's Talk About Your Project</h2>
+
+                        <p>
+                            Tell us about your goals and the challenges
+                            you want to solve. We can explore possible
+                            digital solutions together.
+                        </p>
+
+                        <h3>📧 Email</h3>
+                        <p>hello@novaworks.example</p>
+
+                        <h3>📍 Location</h3>
+                        <p>Available for collaboration worldwide</p>
+                    </div>
+
+                    <form class="contact-form" id="contactForm">
+
+                        <div class="form-row">
+
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+
+                                <input
+                                    type="text"
+                                    id="name"
+                                    name="name"
+                                    placeholder="Enter your name"
+                                    required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+
+                                <input
+                                    type="email"
+                                    id="email"
+                                    name="email"
+                                    placeholder="Enter your email"
+                                    required>
+                            </div>
+
+                        </div>
+
+                        <div class="form-group">
+                            <label for="company">Company Name</label>
+
+                            <input
+                                type="text"
+                                id="company"
+                                name="company"
+                                placeholder="Enter your company name">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+
+                            <textarea
+                                id="message"
+                                name="message"
+                                placeholder="Tell us about your project"
+                                required></textarea>
+                        </div>
+
+                        <button
+                            type="submit"
+                            class="btn btn-primary">
+                            Prepare Email ↗
+                        </button>
+
+                        <p class="form-message" id="formMessage">
+                            This demo form prepares an email draft.
+                            It does not store your information.
+                        </p>
+
+                    </form>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer">
+        <div class="container footer-content">
+
+            <a href="#home" class="logo">
+                Nova<span>Works</span>
+            </a>
+
+            <p>
+                © <span id="year"></span> NovaWorks.
+                All rights reserved.
+            </p>
+
+            <div class="footer-links">
+                <a href="#services">Services</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </div>
+
+        </div>
+    </footer>
+
+
+    <!-- ==================== JAVASCRIPT ==================== -->
+    <script>
+
+        // 1. MOBILE NAVIGATION MENU
+
+        const menuToggle = document.getElementById("menuToggle");
+        const navLinks = document.getElementById("navLinks");
+
+        menuToggle.addEventListener("click", function () {
+
+            const isOpen = navLinks.classList.toggle("active");
+
+            menuToggle.setAttribute(
+                "aria-expanded",
+                String(isOpen)
+            );
+
+            menuToggle.textContent = isOpen ? "✕" : "☰";
+
+        });
+
+
+        // Close the mobile menu after selecting a navigation link
+
+        document.querySelectorAll(".nav-links a").forEach(function (link) {
+
+            link.addEventListener("click", function () {
+
+                navLinks.classList.remove("active");
+
+                menuToggle.setAttribute("aria-expanded", "false");
+
+                menuToggle.textContent = "☰";
+
+            });
+
+        });
+
+
+        // 2. ANIMATED STATISTICS
+
+        const counters = document.querySelectorAll("[data-count]");
+
+        const counterObserver = new IntersectionObserver(
+            function (entries, observer) {
+
+                entries.forEach(function (entry) {
+
+                    if (!entry.isIntersecting) {
+                        return;
+                    }
+
+                    const counter = entry.target;
+                    const target = Number(counter.dataset.count);
+                    const suffix = counter.dataset.suffix || "+";
+
+                    const duration = 1200;
+                    const startTime = performance.now();
+
+                    function updateCounter(currentTime) {
+
+                        const elapsed = currentTime - startTime;
+
+                        const progress = Math.min(
+                            elapsed / duration,
+                            1
+                        );
+
+                        const easedProgress =
+                            1 - Math.pow(1 - progress, 3);
+
+                        const value = Math.round(
+                            target * easedProgress
+                        );
+
+                        counter.textContent = value + suffix;
+
+                        if (progress < 1) {
+                            requestAnimationFrame(updateCounter);
+                        }
+
+                    }
+
+                    requestAnimationFrame(updateCounter);
+
+                    observer.unobserve(counter);
+
+                });
+
+            },
+            {
+                threshold: 0.5
+            }
+        );
+
+
+        counters.forEach(function (counter) {
+            counterObserver.observe(counter);
+        });
+
+
+        // 3. CONTACT FORM
+
+        const contactForm = document.getElementById("contactForm");
+        const formMessage = document.getElementById("formMessage");
+
+        contactForm.addEventListener("submit", function (event) {
+
+            event.preventDefault();
+
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const company = document.getElementById("company").value.trim();
+            const message = document.getElementById("message").value.trim();
+
+            if (!name || !email || !message) {
+                formMessage.textContent =
+                    "Please complete all required fields.";
+
+                return;
+            }
+
+            const subject = encodeURIComponent(
+                "Website enquiry from " + name
+            );
+
+            const body = encodeURIComponent(
+                "Name: " + name + "\n" +
+                "Email: " + email + "\n" +
+                "Company: " + (company || "Not provided") + "\n\n" +
+                "Message:\n" + message
+            );
+
+            formMessage.textContent =
+                "Opening your email application. Replace the sample email address with your real business email before publishing.";
+
+            window.location.href =
+                "mailto:hello@novaworks.example" +
+                "?subject=" + subject +
+                "&body=" + body;
+
+        });
+
+
+        // 4. AUTOMATIC COPYRIGHT YEAR
+
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+
+    </script>
+
+</body>
+</html>
